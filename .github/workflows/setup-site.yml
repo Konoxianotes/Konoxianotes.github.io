@@ -15,6 +15,9 @@ jobs:
       with:
         ref: code
     
+    - name: Use Deno v2
+      uses: denoland/setup-deno@v2
+    
     - name: Set up Git
       run: |
         git config user.name "GitHub Actions"
