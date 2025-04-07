@@ -27,13 +27,18 @@ jobs:
       run: |
         git clone https://github.com/${{ github.repository }} site
         rm -rf site/.git
+        echo ${{ github.repository }}
+        ls
 
     - name: Setup npm
-      run: npm i
+      run: |
+        npm i
+        ls
 
     - name: Create site
       run: |
         npm run create-site
+        ls
 
     - name: Commit the changes
       run: |
@@ -43,3 +48,4 @@ jobs:
         git add -A
         git commit -m "Updated Site"
         git push origin site --force
+        ls
