@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - code
 
 jobs:
   setup-site-branch:
@@ -15,9 +14,6 @@ jobs:
       uses: actions/checkout@v3
       with:
         ref: code
-
-    - name: Setup npm
-      run: npm i
     
     - name: Set up Git
       run: |
@@ -29,7 +25,11 @@ jobs:
         git clone https://github.com/${{ github.repository }} site
         rm -rf site/.git
 
+    - name: Setup npm
+      run: npm i
+
     - name: Create site
+      run: |
         npm run create-site
 
     - name: Commit the changes
