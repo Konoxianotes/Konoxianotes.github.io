@@ -69,6 +69,9 @@ async function remove_mdx_files() {
 }
 
 
+// Add .nojekyll
+fs.writeFileSync(path.join(ROOT_DIRECTORY, ".nojekyll"), "");
+
 
 // Intentionally creating twice for site guide
 await create_site();
