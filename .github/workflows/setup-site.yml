@@ -22,12 +22,15 @@ jobs:
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
+        echo ---
+        pwd
+        echo ---
+        ls
 
     - name: Clone 'main' branch into directory
       run: |
         git clone https://github.com/${{ github.repository }} site
         rm -rf site/.git
-        echo ${{ github.repository }}
         echo ---
         pwd
         echo ---
