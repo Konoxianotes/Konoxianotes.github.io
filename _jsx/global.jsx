@@ -10,8 +10,8 @@ import { Fragment } from "npm:react"
 // Constants
 export const SiteName = "Konoxianotes" // Stores the name of the site
 const STATIC_CODE_STYLE_URL = "/_static/codestyle.css"  // Static URL of css for code styling
-const MDX_ROOT_DIRECTORY = "./"  // path to mdx root directory, relative to this file's location
-const SITE_GUIDE_PATH = "../_static/siteguide.json"  // path to site guide, relative to this file's location
+const MDX_ROOT_DIRECTORY = "../"  // path to mdx root directory, relative to this file's location
+const SITE_GUIDE_PATH = "../siteguide.json"  // path to site guide, relative to this file's location
 const ABS_MDX_ROOT_DIRECTORY = path.join(import.meta.dirname, MDX_ROOT_DIRECTORY)  // path to mdx root directory, absolute location
 const ABS_SITE_GUIDE_PATH = path.resolve(path.join(import.meta.dirname, SITE_GUIDE_PATH))  // path to site guide, absolute location
 const WRITTEN_DATE_PREFIX = "Written on:  "
@@ -34,9 +34,9 @@ function get_mdx_url(mdx_path) { // Get the mdx file path converted into site ur
     const abs_mdx_root = ABS_MDX_ROOT_DIRECTORY
     const relative_mdx_path = path.relative(abs_mdx_root, mdx_path)
     const mdx_url = path.join("/", relative_mdx_path, "/")
-    const mdx_url_safe = mdx_url.toLowerCase().replaceAll(" ", "-")
+    // const mdx_url_safe = mdx_url.toLowerCase().replaceAll(" ", "-")
 
-    return mdx_url_safe
+    return mdx_url
 }
 function guide_register(Category, Title) {  // Register data into guide.json
 
