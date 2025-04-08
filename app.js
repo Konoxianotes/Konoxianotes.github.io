@@ -55,11 +55,12 @@ async function create_site() {
     }
 }
 async function remove_mdx_files() {
+
     // Iterate through files
     let files = fs.readdirSync(ROOT_DIRECTORY, { withFileTypes: true, recursive: true });
 
     for (const file of files) {
-        const file_path = path.join(ROOT_DIRECTORY, file.name)
+        const file_path = path.join(file.parentPath, file.name)
 
         if (file.isFile() && file.name.endsWith(".mdx")) {
             fs.rmSync(file_path, { force: true });
