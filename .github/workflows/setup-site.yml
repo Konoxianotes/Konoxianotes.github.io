@@ -62,7 +62,7 @@ jobs:
         git checkout -b site
         git add .
         git commit -m "Updated Site"
-        git push origin site --force
+        git push -f origin master:site
         echo ---
         pwd
         echo ---
