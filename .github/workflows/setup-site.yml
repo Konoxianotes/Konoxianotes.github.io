@@ -22,35 +22,19 @@ jobs:
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
-        echo ---
-        pwd
-        echo ---
-        ls
 
     - name: Clone 'main' branch into directory
       run: |
         git clone https://github.com/${{ github.repository }} site
         rm -rf site/.git
-        echo ---
-        pwd
-        echo ---
-        ls
 
     - name: Setup npm
       run: |
         npm i
-        echo ---
-        pwd
-        echo ---
-        ls
 
     - name: Create site
       run: |
         npm run create-site
-        echo ---
-        pwd
-        echo ---
-        ls
 
     - name: Commit the changes
       run: |
@@ -63,7 +47,3 @@ jobs:
         git add -A
         git commit -m "Updated Site"
         git push origin site --force
-        echo ---
-        pwd
-        echo ---
-        ls
